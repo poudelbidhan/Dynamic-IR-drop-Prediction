@@ -176,23 +176,5 @@ foreach pp_config {1 2 3 4} {
 
 } # End of foreach pp_config loop
 
-# -------------------------
-# 3. Cleanup Temporary Analysis Directories
-# -------------------------
-puts "INFO: Cleaning up temporary analysis directories..."
-if {[file exists $dynamic_power_dir]} {
-    if {[catch {file delete -force $dynamic_power_dir}]} {
-       puts "WARNING: Could not delete temporary directory: $dynamic_power_dir"
-    } else {
-       puts "INFO: Deleted $dynamic_power_dir"
-    }
-}
-if {[file exists $dynamic_rail_dir]} {
-     if {[catch {file delete -force $dynamic_rail_dir}]} {
-       puts "WARNING: Could not delete temporary directory: $dynamic_rail_dir"
-    } else {
-       puts "INFO: Deleted $dynamic_rail_dir"
-    }
-}
 
 puts "\nINFO: === Power and IR Drop Analysis Complete ==="
