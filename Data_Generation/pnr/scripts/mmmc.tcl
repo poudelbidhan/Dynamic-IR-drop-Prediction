@@ -1,6 +1,10 @@
 
+
+
 # Defines the Multi-Mode Multi-Corner setup using environment variables
-# provided by the calling script (e.g., run_variations.sh via pnr_initialize.tcl).
+
+#### Author : Bidhan Poudel 
+
 
 puts "INFO: Setting up MMMC View 'typical'..."
 
@@ -31,7 +35,7 @@ set qrc_file $env(EXTRACTION_TECH_FILE)
 puts "INFO: [mmmc.tcl] Using QRC tech file: $qrc_file"
 create_rc_corner -name typical \
     -qx_tech_file $qrc_file \
-    ;# Add -cap_table or other options if needed
+
 
 # --- Define Delay Corner ---
 create_delay_corner -name typical \
