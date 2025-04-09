@@ -1,15 +1,15 @@
-# pnr_initialize.tcl (Revised)
+
+####### Author : Bidhan Poudel 
 # Initializes the PnR environment, checks variables, creates directories,
 # loads LEF/Netlist, sets up MMMC, and initializes the design.
 
-puts "INFO: === Step: Initialization (Revised) ==="
+puts "INFO: === Step: Initialization  ==="
 
 # --- Check Required Environment Variables ---
-# Add EXTRACTION_TECH_FILE needed by mmmc.tcl
 set required_vars {
     DESIGN TOP_MODULE OUTPUT_DIR
     LIBERTY_FILES INIT_LEF_FILES VERILOG_FILE SDC_FILE
-    MMMC_TCL EXTRACTION_TECH_FILE # Removed TECH_TCL
+    MMMC_TCL EXTRACTION_TECH_FILE 
 }
 foreach var $required_vars {
     if {![info exists env($var)]} {
@@ -17,13 +17,14 @@ foreach var $required_vars {
         exit 1
     }
 }
+
 # Check if SDC file path is empty (set by bash script if file not found)
 if {$env(SDC_FILE) == ""} {
      puts "WARNING: SDC_FILE environment variable is set but empty. MMMC setup will proceed without SDC."
 }
 
 
-# --- Assign Tcl Variables (Primarily for Readability Here) ---
+# --- Assign Tcl Variables  ---
 set design          $env(DESIGN)
 set top_module      $env(TOP_MODULE)
 set output_dir      $env(OUTPUT_DIR)
@@ -38,9 +39,10 @@ set init_pwr_net    "VDD"
 
 # --- Create Output Subdirectories ---
 puts "INFO: Creating output directories in: $output_dir"
-# (Same directory creation logic as before)
-file mkdir "${output_dir}/reports"; file mkdir "${output_dir}/outputs"
-file mkdir "${output_dir}/power_pads"; file mkdir "${output_dir}/tech_pgv"
+file mkdir "${output_dir}/reports"
+file mkdir "${output_dir}/outputs"
+file mkdir "${output_dir}/power_pads"
+file mkdir "${output_dir}/tech_pgv"
 file mkdir "${output_dir}/Data"
 
 
