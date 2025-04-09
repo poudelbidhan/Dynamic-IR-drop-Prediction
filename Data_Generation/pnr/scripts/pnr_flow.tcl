@@ -22,7 +22,7 @@ puts "INFO: Run Name: $run_name"
 puts "INFO: Output Directory: $output_dir"
 
 # --- Execute PnR Steps Sequentially ---
-# Use 'catch' to detect errors in each step
+
 
 if {[catch {source pnr_initialize.tcl} result]} {
     puts "ERROR: Failed during Initialization: $result"
@@ -52,7 +52,6 @@ if {[catch {source pnr_clock.tcl} result]} {
 if {[catch {source pnr_decaps.tcl} result]} {
     # Decap failure might be non-critical depending on flow
     puts "WARNING: Issue during Decap Insertion: $result"
-    # exit 1 # Uncomment if decap failure should stop the flow
 }
 
 if {[catch {source pnr_routing.tcl} result]} {
