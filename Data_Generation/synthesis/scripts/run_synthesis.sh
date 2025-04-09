@@ -1,5 +1,10 @@
 #!/bin/bash
 # run_synthesis.sh: Script to run synthesis_flow.tcl for each design/period combination
+#################################################################################################
+
+######################## Author :Bidhan Poudel ###############################################
+
+######################################################################################################
 
 # Set the top-level project directory
 PROJECT_DIR="/path/to/project Dir"
@@ -171,7 +176,7 @@ for DESIGN in "${designs[@]}"; do
         export DESIGN="$DESIGN"
         export PERIOD="$PERIOD"
         echo "Running synthesis for $DESIGN at period $PERIOD..."
-        # Invoke Cadence Genus with the synthesis_flow.tcl (assumed to be in the same directory as this script)
+        # Invoke Cadence Genus with the synthesis_flow.tcl 
         genus -abort_on_error -batch -f synthesis_flow.tcl
     done
 done
