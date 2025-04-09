@@ -1,5 +1,10 @@
 # synthesis_flow.tcl
+#############################################################################################################################
 
+
+############################### Author : Bidhan Poudel ###################################################################
+
+#############################################################################################################################
 # Check required environment variables
 if {![info exists env(DESIGN)] || ![info exists env(TOP_MODULE)] || \
     ![info exists env(CLOCK_PORT)] || ![info exists env(PERIOD)] || \
@@ -50,6 +55,11 @@ if {[llength [get_ports "$clock_port"]] == 0} {
 # Create clock constraints
 set half_period [expr {$period / 2.0}]
 create_clock -name clk -period $period -waveform {0 $half_period} [get_ports "$clock_port"]
+
+#sythesis effort settings 
+set_db syn_generic_effort medium
+set_db syn_map_effort medium
+set_db syn_opt_effort medium
 
 # Synthesis steps
 syn_generic
