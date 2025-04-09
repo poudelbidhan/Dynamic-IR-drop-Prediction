@@ -93,11 +93,6 @@ puts "INFO: Design Mode Set (Process 45, Power Effort Low)."
 puts "INFO: Connecting Global Nets (VDD/VSS)..."
 globalNetConnect $init_pwr_net -type pgpin -pin VDD -all
 globalNetConnect $init_gnd_net -type pgpin -pin VSS -all
-# Add tiehi/tielo connections if required by your library/flow
-# globalNetConnect $init_gnd_net -type tiehi
-# globalNetConnect $init_pwr_net -type tielo
-# Ensure initial connectivity for checking/early steps
-sroute -nets [list $init_pwr_net $init_gnd_net] -connect { corePin stdCell }
-puts "INFO: Global Net Connection done."
+
 
 puts "INFO: === Initialization Complete (Revised) ==="
