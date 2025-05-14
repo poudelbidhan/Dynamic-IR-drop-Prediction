@@ -10,7 +10,7 @@ The workflow is divided into two main stages, orchestrated by Bash scripts, with
     *   Takes RTL Verilog code for multiple base designs as input.
     *   Runs synthesis using **Cadence Genus** for each design across a specified range of target clock periods (frequencies), introducing initial design variations.
     *   Generates synthesized gate-level Verilog netlists (`.v`) and corresponding timing constraints (`.sdc`) for each design/period combination.
-    *   Produces basic synthesis reports (timing, area, power, QoR) – potential features for ML models.
+    *   Produces basic synthesis reports (timing, area, power, QoR).
     *   Outputs are organized into a structured directory (`synthesis/outputs/work/`).
 
 2.  **Place & Route Stage (`run_variations.sh` + `pnr_flow.tcl` + modules):**
