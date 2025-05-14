@@ -52,8 +52,6 @@ This combined flow systematically generates a rich dataset capturing the relatio
     *   Decoupling Capacitor Library Files/Directory (for PnR decap insertion and analysis).
 
 
-*(Note: Ensure the script files have the correct `.sh` and `.tcl` extensions, not `.txt` as in the original input listing).*
-
 ## Inputs
 
 1.  **RTL Source Code:** Verilog (`.v`) files located under `inputs/rtl/`.
