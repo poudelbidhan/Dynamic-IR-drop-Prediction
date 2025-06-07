@@ -156,7 +156,7 @@ foreach pp_config {1 2 3 4} {
     # --- Save Design Files and Other Reports ---
     puts "INFO: Saving final DEF and TWF files for ${analysis_run_name}..."
     # Use consistent naming within the final directory
-    if {[catch {defOut -floorplan -unplaced -netlist -routing "${final_output_subdir}/detailed_route.def.gz"} result]} {
+    if {[catch {defOut -floorplan -netlist -routing "${final_output_subdir}/detailed_route.def.gz"} result]} {
          puts "WARNING: Failed to save DEF: $result"
     }
     if {[catch {write_timing_windows "${final_output_subdir}/cts.twf" -view typical} result]} {
